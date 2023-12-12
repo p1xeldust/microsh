@@ -1,13 +1,9 @@
 CC          = 
-LD          = 
 CFLAGS      = -Ofast -DDEBUG -static
 LDFLAGS     = -Ofast
 
 ifeq ($(CC),)
 CC          = gcc
-endif
-ifeq ($(CC),)
-LD          = ld
 endif
 
 CSOURCES    = main.c execute.c parse_input.c

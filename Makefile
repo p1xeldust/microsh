@@ -1,5 +1,5 @@
 CC          = gcc
-CFLAGS      = -Ofast -DDEBUG
+CFLAGS      = -Ofast -DDEBUG -static
 LDFLAGS     = -Ofast
 
 ifeq ($(CC),)
@@ -12,8 +12,8 @@ BIN         = microsh
 COBJ        = $(CSOURCES:.c=.o)
 all: $(COBJ)
 	@echo "  CCLD  $(BIN)"
-	@$(CC) $(CFLAGS) -o $(BIN) $^ $(CMLIBS)
-
+	@$(LD) $(LDFLAGS) -o $(BIN) $^ 
+	
 %.o: %.c
 	@echo "  CC    $@"
 	@$(CC) $(CFLAGS) -c $< -o $@

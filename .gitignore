@@ -1,0 +1,4 @@
+microsh
+*.o
+.git
+.vscode

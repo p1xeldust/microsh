@@ -1,9 +1,13 @@
-CC          = gcc
+CC          = 
+LD          = 
 CFLAGS      = -Ofast -DDEBUG -static
 LDFLAGS     = -Ofast
 
 ifeq ($(CC),)
 CC          = gcc
+endif
+ifeq ($(CC),)
+LD          = ld
 endif
 
 CSOURCES    = main.c execute.c parse_input.c
@@ -12,8 +16,8 @@ BIN         = microsh
 COBJ        = $(CSOURCES:.c=.o)
 all: $(COBJ)
 	@echo "  CCLD  $(BIN)"
-	@$(LD) $(LDFLAGS) -o $(BIN) $^ 
-	
+	@$(CC) $(LDFLAGS) -o $(BIN) $^ 
+
 %.o: %.c
 	@echo "  CC    $@"
 	@$(CC) $(CFLAGS) -c $< -o $@

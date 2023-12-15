@@ -11,7 +11,7 @@ BIN         = microsh
 COBJ        = $(CSOURCES:.c=.o)
 all: $(COBJ)
 	@echo "  CCLD  $(BIN)"
-	@$(CC) $(CFLAGS) -o $(BIN) $^ 
+	@$(CC) $(CFLAGS) -o $(BIN) $^
 
 %.o: %.c
 	@echo "  CC    $@"

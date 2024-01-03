@@ -9,7 +9,7 @@ void set_env_var(char* input) {
     if (var_value != NULL) {
         setenv(var_name, var_value, 1);
     } else {
-        setenv(var_name, NULL, 1);
+        setenv(var_name, "", 1);
     }
     return;
 }

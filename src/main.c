@@ -1,6 +1,7 @@
 #include <string.h>
 #include <stdio.h>
 
+#include "set_env_vars.h"
 #include "parse_input.h"
 #include "constants.h"
 #include "execute.h"
@@ -16,8 +17,13 @@ int main() {
         parse_input(input, args);
 
         if (args[0] != NULL) {
-            if (strcmp(args[0], "exit") == 0) {
+            if (!strcmp(args[0], "exit")) {
                 break;
+            }
+            if (!strcmp(args[0], "export")) {
+                if(args[1] != NULL)
+                    set_env_var(args[1]);
+                continue;
             }
             execute_command(args);
         }

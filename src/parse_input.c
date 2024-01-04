@@ -1,9 +1,6 @@
 #include <string.h>
 #include <stdlib.h>
-#include <stddef.h>
-#include <stdio.h>
 
-#include "set_env_vars.h"
 #include "constants.h"
 
 void parse_input(char* input, char** args) {

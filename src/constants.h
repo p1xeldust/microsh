@@ -1,7 +1,9 @@
 #ifndef CONSTANTS_H
 #define CONSTANTS_H
 
-#define MAX_INPUT_LENGTH 1024
+#include <linux/limits.h>
+
+#define MAX_INPUT_LENGTH MAX_INPUT
 #define MAX_ARGS 64
 
 #endif

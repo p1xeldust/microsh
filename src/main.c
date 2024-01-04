@@ -1,7 +1,10 @@
 #include <string.h>
 #include <stdio.h>
 
-#include "set_env_vars.h"
+#include "utils/cd.h"
+#include "utils/echo.h"
+#include "utils/export.h"
+
 #include "parse_input.h"
 #include "constants.h"
 #include "execute.h"
@@ -11,7 +14,7 @@ int main() {
     char* args[MAX_ARGS];
 
     while (1) {
-        printf("microshell $ ");
+        printf("microsh $ ");
         fgets(input, sizeof(input), stdin);
 
         parse_input(input, args);
@@ -22,7 +25,17 @@ int main() {
             }
             if (!strcmp(args[0], "export")) {
                 if(args[1] != NULL)
-                    set_env_var(args[1]);
+                    export_env_var(args[1]);
+                continue;
+            }
+            if (!strcmp(args[0], "echo")) {
+                if(args[1] != NULL)
+                    echo(args+1);
+                continue;
+            }
+            if (!strcmp(args[0], "cd")) {
+                if(args[1] != NULL)
+                    cd(args[1]);
                 continue;
             }
             execute_command(args);

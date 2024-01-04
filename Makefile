@@ -5,7 +5,7 @@ ifeq ($(CC),)
 CC          = gcc
 endif
 
-CSOURCES    = src/main.c src/execute.c src/parse_input.c src/set_env_vars.c
+CSOURCES    = src/main.c src/utils/cd.c src/utils/export.c src/utils/echo.c src/execute.c src/parse_input.c
 BIN         = microsh
 
 COBJ        = $(CSOURCES:.c=.o)

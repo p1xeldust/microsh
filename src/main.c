@@ -1,4 +1,6 @@
 #include <string.h>
+#include <signal.h>
+#include <stdlib.h>
 #include <stdio.h>
 
 #include "utils/cd.h"
@@ -12,6 +14,14 @@
 int main() {
     char input[MAX_INPUT_LENGTH];
     char* args[MAX_ARGS];
+
+    struct sigaction sa;
+    sa.sa_handler = SIG_IGN;
+    sa.sa_flags = 0;
+    sigemptyset(&sa.sa_mask);
+
+    if (sigaction(SIGINT, &sa, NULL) == -1)
+        exit(EXIT_FAILURE);
 
     while (1) {
         printf("microsh $ ");
@@ -38,7 +48,7 @@ int main() {
                     cd(args[1]);
                 continue;
             }
-            execute_command(args);
+            printf("return code: %d\n", execute_command(args));
         }
     }
 

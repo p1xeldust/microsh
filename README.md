@@ -2,5 +2,11 @@
 
 [![C/C++ CI](https://github.com/p1xeldust/microsh/actions/workflows/c-cpp.yml/badge.svg)](https://github.com/p1xeldust/microsh/actions/workflows/c-cpp.yml)
 
-MicroSH is a really tiny shell that can execute commands!  
-No `cd` support yet :P 
+[where cowsay](doc/microsh_cowsay.png)
+
+MicroSH is a really tiny shell that can execute commands!
+You can:
+* use `cd`
+* set environment variables via `export`
+* print environment variables via `echo` (and use it regular way tho xP)
+* not use arrows for prevous commands

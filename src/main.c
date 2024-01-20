@@ -48,7 +48,7 @@ int main() {
                     cd(args[1]);
                 continue;
             }
-            printf("return code: %d\n", execute_command(args));
+            execute_command(args);
         }
     }
 
